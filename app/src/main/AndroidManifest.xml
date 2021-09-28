@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".AddActivity"
+        <activity android:name=".UpdateActivity"></activity>
+        <activity
+            android:name=".AddActivity"
             android:label="Ajouter un livre"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:label="Ma bibliothèque">

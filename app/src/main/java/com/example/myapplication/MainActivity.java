@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
     CustomAdapter adapter;
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1){
+            recreate();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -47,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         DisplayData();
 
-        adapter = new CustomAdapter(MainActivity.this, book_id, book_title, book_author, book_pages);
+        adapter = new CustomAdapter(MainActivity.this, this, book_id, book_title, book_author, book_pages);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
